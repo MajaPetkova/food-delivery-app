@@ -17,7 +17,6 @@ const Price = ({ price, id, options }) => {
       {/* Quantity and add Button Container  */}
       <div>
         {/* {Quantity } */}
-
         <div>
           <span>Quantity</span>  
           <div>
@@ -27,7 +26,7 @@ const Price = ({ price, id, options }) => {
           </div>
         </div>
         {/* Cart Button  */}
-        <button>
+        <button>Add to Cart
         </button>
       </div>
     </div>
