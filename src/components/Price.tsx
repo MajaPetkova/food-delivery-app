@@ -8,25 +8,25 @@ type Props = {
 };
 const Price = ({ price, id, options }) => {
   return (
-    <div>
-      <h2>{price.toFixed(2)}</h2>
+    <div className="flex flex-col gap-4">
+      <h2 className="text-2xl font-bold">{price.toFixed(2)}</h2>
       {/* Options Container  */}
-      <div>
-       { options.map((x) => (<button key={x.title}>{x.title}</button>))}
+      <div className="flex gap-4">
+       { options.map((x) => (<button key={x.title} className="ring-1 ring-red-400 rounded-md p-2">{x.title}</button>))}
       </div>
       {/* Quantity and add Button Container  */}
-      <div>
+      <div className="flex justify-between items-center">
         {/* {Quantity } */}
-        <div>
+        <div className="flex justify-between w-full p-3 ring-1 ring-red-400 ">
           <span>Quantity</span>  
-          <div>
+          <div className="flex gap-4 items-center">
             <button>{"<"}</button>
             <span>1</span>
             <button>{">"}</button>
           </div>
         </div>
         {/* Cart Button  */}
-        <button>Add to Cart
+        <button className="uppercase bg-red-500 w-56 text-white p-3 ring-1 ring-red-400">Add to Cart
         </button>
       </div>
     </div>
