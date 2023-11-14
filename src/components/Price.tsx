@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   price: number;
@@ -10,6 +10,14 @@ const Price = ({ price, id, options }) => {
   const [totalPrice, setTotalPrice] = useState(price);
   const [quantity, setQuantity] = useState(1);
   const [selectedItem, setSelectedItem] = useState(0);
+
+  useEffect(() => {
+    setTotalPrice(
+      quantity *
+        (options ? price + options[selectedItem].additionalPrice : price)
+    );
+  }, [ quantity, selectedItem, options, price]);
+
 
   return (
     <div className="flex flex-col gap-4">
@@ -37,7 +45,7 @@ const Price = ({ price, id, options }) => {
           <span>Quantity</span>
           <div className="flex gap-4 items-center">
             <button
-              onClick={() => setQuantity((prev) => (prev <= 1 ?  1 : prev - 1))}
+              onClick={() => setQuantity((prev) => (prev <= 1 ? 1 : prev - 1))}
             >
               {"<"}
             </button>
